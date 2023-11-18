@@ -9,10 +9,19 @@ import (
 )
 
 func main() {
+
+	reader := bufio.NewReader(os.Stdin)
+	prints("Would you like to play a quick game of luck? Y/N: ")
+
+	result, _ := reader.ReadString('\n')
+
+	if result == "y" || result == "Y" {
+		runRobberyAttempt()
+	}
+
 	var x, y uint8
 
 	prints("We have two variables, which have not yet been assigned.\nWould you like to pick a number? Y/N")
-	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("\nEnter text: ")
 	yn, _ := reader.ReadString('\n')
 
